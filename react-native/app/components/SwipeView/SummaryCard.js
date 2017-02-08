@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { styles } from './styles';
 
 import { View, Text, Image, TouchableHighlight, Button, Linking } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
 import LinearGradient from 'react-native-linear-gradient';
 
 import { HighlightsBox } from './HighlightsBox';
 import { RatingStars } from './RatingStars';
 
+import { styles } from './styles';
+
 export const SummaryCard = React.createClass({
 
   render () {
-    const goToRestaurant = () => Actions.restaurant({id: this.props.restaurant.id});
+    const goToRestaurant = () => Actions.restaurant({restaurant: this.props.restaurant});
     return (
       <View style={styles.card}>
         <TouchableHighlight onPress={goToRestaurant}>
@@ -39,10 +39,8 @@ export const SummaryCard = React.createClass({
                   source={require('./img/Yelp.png')}
                   style={styles.yelpImg} />
               </TouchableHighlight>
+            </View>
           </View>
-
-          </View>
-
         </View>
       </View>
     );

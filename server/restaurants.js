@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 const {updateSecretsFile} = require('./utils');
-const env = require('../.biteswipe.env.js');
+const env = require('APP').env;
 
 const refreshYelpToken = (req, res, next, attempted) => {
 	if(attempted) return next();

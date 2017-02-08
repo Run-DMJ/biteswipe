@@ -1,4 +1,4 @@
-import {RECEIVE_RESTAURANTS, RECEIVE_RESTAURANT, RECEIVE_REVIEWS, IP} from '../constants';
+import {RECEIVE_RESTAURANTS, RECEIVE_RESTAURANT, RECEIVE_REVIEWS, ADDRESS} from '../constants';
 import axios from 'axios';
 import {handleAuthenticationError} from './auth';
 
@@ -19,7 +19,7 @@ export const receiveReviews = reviews => ({
 
 export const getRestaurants = () =>
 	(dispatch, getState) => {
-		axios.get(`http://${IP}:1337/api/restaurants`,
+		axios.get(`${ADDRESS}/api/restaurants`,
 			{
 				headers: {'Authorization': `Bearer ${getState().auth.accessToken}`},
 				params: {
@@ -39,7 +39,7 @@ export const getRestaurants = () =>
 
 export const getRestaurant = (id) =>
 	(dispatch) => {
-		axios.get(`http://${IP}:1337/api/restaurants/${id}`)
+		axios.get(`${ADDRESS}/api/restaurants/${id}`)
 		.then(res => res.data)
 		.then(restaurant => {
 			dispatch(receiveRestaurant(restaurant));
@@ -49,7 +49,7 @@ export const getRestaurant = (id) =>
 
 export const getReviews = (id) =>
 	(dispatch) => {
-		axios.get(`http://${IP}:1337/api/restaurants/:id/reviews`, {
+		axios.get(`${ADDRESS}/api/restaurants/:id/reviews`, {
 			params: {
 				id: id
 			}

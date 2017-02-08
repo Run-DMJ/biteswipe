@@ -80,6 +80,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.primary,
     flexDirection: 'row',
+    elevation: 4,
   },
   iconsBox: {
     backgroundColor: colors.lightPrimary,

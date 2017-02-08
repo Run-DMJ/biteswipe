@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {REFRESH_TOKEN, ACCESS_TOKEN, LOGGED_IN, GETTING_ACCESS_TOKEN, LOGIN_ERROR, SIGNUP_ERROR, AUTHENTICATED_USER, IP} from '../constants';
+import {REFRESH_TOKEN, ACCESS_TOKEN, LOGGED_IN, GETTING_ACCESS_TOKEN, LOGIN_ERROR, SIGNUP_ERROR, AUTHENTICATED_USER, ADDRESS} from '../constants';
 import store from '../store'
 
 export const receiveRefreshToken = refreshToken => ({
@@ -39,7 +39,7 @@ export const handleAuthenticationError = (error, func) => {
 
 export const getAccessToken = (func) => 
   (dispatch, getState) =>
-    axios.get(`http://${IP}:1337/api/auth/token`, 
+    axios.get(`${ADDRESS}/api/auth/token`, 
       {headers: {'Authorization': `Bearer ${getState().auth.refreshToken}`}})
       .then(res => res.data)
       .then(body => {
@@ -49,26 +49,26 @@ export const getAccessToken = (func) =>
         if(func) dispatch(func());
       })
       .catch(error => {
-        if(error.response.status === 401) dispatch(logout);
+        if(error.response && error.response.status === 401) dispatch(logout);
         else console.error(error);
       });
 
 export const getAuthenticatedUser = () => 
   (dispatch, getState) =>
-    axios.get(`http://${IP}:1337/api/auth/user`, 
+    axios.get(`${ADDRESS}/api/auth/user`, 
       {headers: {'Authorization': `Bearer ${getState().auth.refreshToken}`}})
       .then(res => res.data)
       .then(body => {
         dispatch(receiveAuthenticatedUser(body.user));
       })
       .catch(error => {
-        if(error.response.status === 401) dispatch(logout);
+        if(error.response && error.response.status === 401) dispatch(logout);
         else console.error(error);
       });
       
 export const signup = (name, email, password) => 
   dispatch =>
-    axios.post(`http://${IP}:1337/api/auth/signup`,
+    axios.post(`${ADDRESS}/api/auth/signup`,
       {name, email, password})
       .then(res => res.data)
       .then(body => {
@@ -85,7 +85,7 @@ export const signup = (name, email, password) =>
 
 export const login = (username, password) =>
   dispatch =>
-    axios.post(`http://${IP}:1337/api/auth/local/login`,
+    axios.post(`${ADDRESS}/api/auth/local/login`,
       {username, password})
       .then(res => res.data)
       .then(body => {
@@ -102,7 +102,7 @@ export const login = (username, password) =>
 
 export const logout = () =>
   (dispatch, getState) =>
-    axios.post(`http://${IP}:1337/api/auth/logout`, 
+    axios.post(`${ADDRESS}/api/auth/logout`, 
       {refreshToken: getState().auth.refreshToken})
       .then(() => {
         dispatch(receiveRefreshToken(''));
