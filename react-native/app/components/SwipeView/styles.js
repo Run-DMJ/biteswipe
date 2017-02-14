@@ -1,11 +1,13 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+
+import { colors } from '../colors';
 
 export const styles = StyleSheet.create({
   swipeViewBackground: {
     backgroundColor: '#F0F0F0', 
-    flex:1, 
+    flex: 1, 
     elevation:0
   },
   cardWrapper: {
@@ -56,8 +58,10 @@ export const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     borderRadius: 10,
-    backgroundColor: 'lightgreen',
-    flexDirection: 'row'
+    backgroundColor: colors.primary,
+    flexDirection: 'row',
+    alignItems: 'center',
+    elevation: 4,
   },
   yelpContainer: {
     alignItems: 'center',
@@ -80,7 +84,7 @@ export const styles = StyleSheet.create({
     borderRadius: 30
   },
   iconsBox: {
-    backgroundColor: 'green',
+    backgroundColor: colors.lightPrimary,
     height: 40,
     minWidth: 40,
     marginLeft: 2,
@@ -93,29 +97,27 @@ export const styles = StyleSheet.create({
   },
   priceBox:{
     justifyContent: 'center',
-    alignItems: 'center',
     width: 80,
     height: 40,
     borderRadius: 2
   },
   priceBold: {
-    fontSize: 20,
-    color: '#FFFFFF'
+    textAlign: 'center',
+    fontSize: 24,
+    color: colors.primaryText,
   },
   priceLight: {
     fontSize: 20,
-    color: '#000000'
+    color: colors.secondaryText,
   },
   distanceDot: {
     marginLeft: 5,
-    backgroundColor: 'orange',
-    borderRadius: 20,
+    backgroundColor: colors.darkPrimary,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 40,
-    height: 40,
-    borderWidth: 1,
-    borderColor: 'red'
+    width: 50,
+    height: 50,
   },
   distanceDotText: {
     lineHeight: 14
