@@ -16,7 +16,8 @@ export default StyleSheet.create({
   },
   login: {
     width: width / 2,
-    height: height / 10
+    height: height / 10,
+    borderRadius: 0,
   },
   loginText: {
     fontSize: 15,
@@ -25,7 +26,8 @@ export default StyleSheet.create({
   },
   signup: {
     width: width / 2,
-    height: height / 10
+    height: height / 10,
+    borderRadius: 0,
   },
   signupText: {
     fontSize: 15,

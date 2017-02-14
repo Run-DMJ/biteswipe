@@ -26,18 +26,12 @@ export const HighlightsBox = props => {
   }
 
   formatPrice = () => {
-    switch (props.restaurant.price) {
-      case '$': 
-        return (<View style={styles.priceBox}><Text style={styles.priceLight}>$<Text style={styles.priceBold}>$$$</Text></Text></View>);
-      case '$$':
-        return (<View style={styles.priceBox}><Text style={styles.priceLight}>$$<Text style={styles.priceBold}>$$</Text></Text></View>);
-      case '$$$':
-        return (<View style={styles.priceBox}><Text style={styles.priceLight}>$$$<Text style={styles.priceBold}>$</Text></Text></View>);
-      case '$$$$':
-        return (<View style={styles.priceBox}><Text style={styles.priceLight}>$$$$<Text style={styles.priceBold}></Text></Text></View>);
-      default :
-        return (<View style={styles.priceBox}><Text>-no data-</Text></View>)
-    }
+    let n = props.restaurant.price.length;
+    return (
+      <View style={styles.priceBox}>
+        <Text style={styles.priceBold}>{'$'.repeat(n)}<Text style={styles.priceLight}>{'$'.repeat(4-n)}</Text></Text>
+      </View>
+      );
   }
 
   let distance = (props.restaurant.distance * 0.000621371);
