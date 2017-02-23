@@ -8,4 +8,6 @@ Capstone Project for Fullstack Academy.
 
 Team Members: Joe Cumins, Dennis Deng, Mark Hario, & Rachel Bird. :octocat:
 
+Team Run-DMJ presenting BiteSwipe on 2/16/17: https://www.youtube.com/watch?v=aSN2p8m543s
+
 ![Biteswipe Landing Page](/public/landing-page.png?raw=true "Main Screen")
