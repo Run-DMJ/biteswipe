@@ -12,6 +12,7 @@ import Categories from './components/Categories/';
 import AdditionalCategories from './components/AdditionalCategories/';
 import Filter from './components/Filter';
 import Restaurant from './components/Restaurant';
+import Privacy from './components/Privacy';
 
 const mapStateToProps = state => ({
   loggedIn: state.auth.loggedIn
@@ -36,6 +37,7 @@ const scenes = Actions.create(
       <Scene key="additionalcategories" component={AdditionalCategories} title="Additional Categories"/>
       <Scene key="filter" component={Filter} title="Search Settings"/>
       <Scene key="restaurant" component={Restaurant} hideNavBar={false} title="Restaurant"/>
+      <Scene key="privacy" component={Privacy} title="Privacy Policy"/>
     </Scene>
 
   </Scene>

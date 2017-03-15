@@ -52,6 +52,9 @@ module.exports = app
   // Serve our api
   .use('/api', require('./api'))
 
+  // privacy
+  .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'privacy.html')))
+
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 

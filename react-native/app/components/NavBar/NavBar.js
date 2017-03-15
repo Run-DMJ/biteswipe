@@ -61,7 +61,7 @@ export default class NavBar extends Component {
         break;
     };
 
-    const actions = (this.props.tab === 1 && current.name !== 'restaurant') ? [{ icon: 'delete', onPress: this.props.clearResults}] : [];
+    const actions = (this.props.tab === 1 && current.name === 'swipe') ? [{ icon: 'delete', onPress: this.props.clearResults}] : [];
 
     return (
       <Toolbar

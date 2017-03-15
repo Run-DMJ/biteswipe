@@ -26,6 +26,9 @@ const Drawer = React.createClass({
 				case 'contact':
 					Linking.openURL(`mailto:${CONTACT}`);
 					break;
+				case 'privacy':
+					Actions.privacy();
+					break;
 				case 'logout':
 					this.props.logout();
 					break;
@@ -67,7 +70,12 @@ const Drawer = React.createClass({
 	                  value: 'Contact',
 	                  onPress: () => this.onPress('contact'),
 	                  onLongPress: () => this.onLongPress('contact')
-	                }
+	                },
+                	{
+                    value: 'Privacy Policy',
+                    onPress: () => this.onPress('privacy'),
+                    onLongPress: () => this.onLongPress('privacy')
+                  }
 		            ]}
 		        />
 		        <Divider style={styles.divider}/>
