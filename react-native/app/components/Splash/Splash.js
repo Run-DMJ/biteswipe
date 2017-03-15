@@ -59,7 +59,7 @@ export default class Splash extends Component {
           style={this.state.size}
           autoplay={true}>
           <CarouselItem image={require('./1.jpg')} color={"#4CAF50"}></CarouselItem>
-          <CarouselItem image={require('./2.jpg')} color={"#303F9F"}></CarouselItem>
+          <CarouselItem image={require('./2.jpg')} color={"#306b9f"}></CarouselItem>
           <CarouselItem image={require('./3.jpg')} color={"#009688"}></CarouselItem>
           <CarouselItem image={require('./4.jpg')} color={"#03A9F4"}></CarouselItem>
         </Carousel>

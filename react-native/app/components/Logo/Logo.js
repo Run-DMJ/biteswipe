@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, Text, Dimensions, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import {View, Text, Image, Dimensions, StyleSheet} from 'react-native';
 
 const Logo = props => {
 
@@ -23,6 +22,10 @@ const Logo = props => {
 			textAlign: 'center',
 			padding: textPadding,
 			color: textColor
+		},
+		image: {
+			width: width / 2,
+			height: width / 3
 		}
 	});
 
@@ -32,7 +35,7 @@ const Logo = props => {
 				  <Text style={styles.innerText}>
 				  	BiteSwipe
 				  </Text>
-				  <Icon name="github" size={50} color="white"/>
+				  <Image source={require('./biteswipe.png')} style={styles.image}/>
 		  	</View>
 		  </View>
 		);

@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {Linking, View, Text, Image} from 'react-native';
 import {Avatar, Drawer as MaterialDrawer, Divider, COLOR, TYPO} from 'react-native-material-design';
 import {Actions} from 'react-native-router-flux';
 import TimerMixin from 'react-timer-mixin';
+import {CONTACT} from '../../constants';
 
 import styles from './styles';
 
@@ -21,6 +22,9 @@ const Drawer = React.createClass({
 					break;
 				case 'search':
 					Actions.filter();
+					break;
+				case 'contact':
+					Linking.openURL(`mailto:${CONTACT}`);
 					break;
 				case 'logout':
 					this.props.logout();
@@ -59,11 +63,6 @@ const Drawer = React.createClass({
 		                onPress: () => this.onPress('search'),
 		                onLongPress: () => this.onLongPress('search')
 		              },
-		              {
-	                  value: 'User Settings',
-	                  onPress: () => this.onPress('user'),
-	                  onLongPress: () => this.onLongPress('user')
-	                },
 	              	{
 	                  value: 'Contact',
 	                  onPress: () => this.onPress('contact'),

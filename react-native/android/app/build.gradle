@@ -82,26 +82,34 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+def gradlePropertiesFile = rootProject.file('gradle.properties')
+def gradleProperties = new Properties()
+gradleProperties.load(new FileInputStream(gradlePropertiesFile))
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.biteswipe"
+        applicationId "com.sanplot.biteswipe"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [
+            crashlytics_api_key: gradleProperties['crashlytics_api_key'], 
+            google_maps_api_key: gradleProperties['google_maps_api_key']
+        ]
     }
     signingConfigs {
         release {
-            storeFile file(MYAPP_RELEASE_STORE_FILE)
-            storePassword MYAPP_RELEASE_STORE_PASSWORD
-            keyAlias MYAPP_RELEASE_KEY_ALIAS
-            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            keyAlias gradleProperties['keyAlias']
+            keyPassword gradleProperties['keyPassword']
+            storeFile file(gradleProperties['storeFile'])
+            storePassword gradleProperties['storePassword']
         }
     }
     splits {
@@ -134,6 +142,22 @@ android {
     }
 }
 
+buildscript {
+  repositories {
+    maven { url 'https://maven.fabric.io/public' }
+  }
+  dependencies {
+    // The Fabric Gradle plugin uses an open ended version to react
+    // quickly to Android tooling updates
+    classpath 'io.fabric.tools:gradle:1.+'
+  }
+}
+
+apply plugin: 'io.fabric'
+repositories {
+  maven { url 'https://maven.fabric.io/public' }
+}
+
 dependencies {
     compile project(':react-native-maps')
     compile project(':react-native-linear-gradient')
@@ -141,9 +165,13 @@ dependencies {
     compile project(':react-native-vector-icons')
     compile project(':react-native-material-kit')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.android.support:appcompat-v7:25.3.0"
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile 'com.facebook.fresco:animated-gif:0.11.0'
+    compile project(':react-native-fabric')
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
 }
 
 // Run this once to be able to run the application with BUCK

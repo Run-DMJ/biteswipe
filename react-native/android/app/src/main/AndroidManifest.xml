@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.biteswipe"
+    package="com.sanplot.biteswipe"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -19,7 +19,11 @@
       android:theme="@style/AppTheme">
       <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyDvsYxWBhQaM9AuOe9iG2wJH1MvHNaHGOA"/>
+        android:value="${google_maps_api_key}"/>
+      <meta-data
+          android:name="io.fabric.ApiKey"
+          android:value="${crashlytics_api_key}"
+          />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

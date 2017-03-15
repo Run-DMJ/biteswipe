@@ -1,4 +1,4 @@
-package com.biteswipe;
+package com.sanplot.biteswipe;
 
 import android.app.Application;
 import android.util.Log;
@@ -14,6 +14,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.smixx.fabric.FabricPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,11 +31,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new MapsPackage(),
+          new MapsPackage(),
           new LinearGradientPackage(),
           new RNSpinkitPackage(),
           new VectorIconsPackage(),
-          new ReactMaterialKitPackage()
+          new ReactMaterialKitPackage(),
+          new FabricPackage()
       );
     }
   };

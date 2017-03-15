@@ -51,6 +51,8 @@ export const getCurrentLocation = () => {
         error => {
           error.type = LOCATION_ERROR;
           reject(error)
+      }, {
+        timeout: 5000
       });
     });
 	};
