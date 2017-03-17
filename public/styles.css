@@ -67,36 +67,6 @@ h1 {
   line-height: 36px;
   vertical-align: middle;
 }
-#instructions {
-  color: white;
-  margin-top: 5px;
-}
-#instructions:hover {
-  cursor: pointer;
-}
-#card {
-  display: none;
-}
-.card {
-  margin: 10px auto 0 auto;
-  height: 208px;
-  width: 250px;
-  padding: 10px 20px;
-  background: #fff;
-  border-radius: 2px;
-  box-sizing: border-box;
-  text-align: left;
-  font-family: Roboto, sans-serif;
-  font-size: 15px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-.card-list {
-  padding-left: 10px;
-  color: #4d4a59;
-}
-.card-list li {
-  margin-bottom: 15px;
-}
 .bold {
   font-weight: 900;
   color: black;
@@ -112,5 +82,5 @@ h1 {
   color: #b3b3b3;
 }
 .play {
-  width: 25%;
+  width: 250px;
 }
