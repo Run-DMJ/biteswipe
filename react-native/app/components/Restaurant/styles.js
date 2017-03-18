@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 export const styles = StyleSheet.create({
   main: {
     elevation: 2,
-    alignItems: 'center',
+    flex: 1,
     backgroundColor: '#ffffff'
   },
   card: {
@@ -35,12 +35,15 @@ export const styles = StyleSheet.create({
     height: 30,
     borderRadius: 15
   },
+  tabContainer: {
+    flex: 1
+  },
   tab: {
     width: Dimensions.get('window').width * 1,
     padding: 15
   },
   scrollItem: {
-    height: 850
+    flex: 1
   },
   tabTitle: {
     color: 'black'

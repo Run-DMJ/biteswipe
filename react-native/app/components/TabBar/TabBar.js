@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {  StyleSheet } from 'react-native';
 
-import { Container, Content, Tabs, View, Text } from 'native-base';
+import { Container, Tabs, View, Text } from 'native-base';
 
 import myTheme from './light.js'
 

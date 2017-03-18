@@ -94,8 +94,8 @@ android {
         applicationId "com.sanplot.biteswipe"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -159,6 +159,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':lottie-react-native')
     compile project(':react-native-maps')
     compile project(':react-native-linear-gradient')
     compile project(':react-native-spinkit')

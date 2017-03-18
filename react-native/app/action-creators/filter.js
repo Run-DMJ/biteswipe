@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {PermissionsAndroid} from 'react-native';
 import {LOCATION_ERROR, SEARCH_SETTINGS_ERROR} from '../errors';
 import {handleAuthenticationError} from './auth';
 import {
@@ -39,21 +40,52 @@ export const setTemporaryPriceRange = temporaryPriceRange =>
 export const getCurrentLocation = () => {
   return dispatch => {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          const location = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          };
-          dispatch(receiveLocation(location));
-          resolve(location);
-      }, 
-        error => {
-          error.type = LOCATION_ERROR;
-          reject(error)
-      }, {
-        timeout: 5000
-      });
+      PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
+      .then(permission => {
+        if(permission) {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              const location = {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+              };
+              dispatch(receiveLocation(location));
+              resolve(location);
+          }, 
+            error => {
+              error.type = LOCATION_ERROR;
+              reject(error);
+          }, {
+            timeout: 5000
+          });
+        } else {
+          PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
+          .then(granted => {
+            if(granted === PermissionsAndroid.RESULTS.GRANTED) {
+              navigator.geolocation.getCurrentPosition(
+                position => {
+                  const location = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                  };
+                  dispatch(receiveLocation(location));
+                  resolve(location);
+              }, 
+                error => {
+                  error.type = LOCATION_ERROR;
+                  reject(error);
+              }, {
+                timeout: 5000
+              });
+            }
+            else {
+              reject("Location Permission Not Granted");
+            };
+          })
+          .catch(reject)
+        };
+      })
+      .catch(reject);
     });
 	};
 };
@@ -94,5 +126,3 @@ export const updateSearchSettings = (priceRange, radius, categories) => {
     }); 
   }
 };
-
-

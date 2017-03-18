@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import { SummaryCard } from './SummaryCard';
 import { styles } from './styles';
 import NoMoreCards from './NoMoreCards';
 
-import { View } from 'native-base'
 import DeckSwiper from '../DeckSwiper';
 
 export default class SwipeView extends Component {

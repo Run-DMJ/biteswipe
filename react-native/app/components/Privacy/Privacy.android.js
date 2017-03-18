@@ -12,7 +12,7 @@ export default class Privacy extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<WebView style={styles.webView} source={require('./privacy.html')}></WebView>
+				<WebView style={styles.webView} source={{ uri: 'file:///android_asset/privacy.html' }}/>
 			</View>
 			);
 	}

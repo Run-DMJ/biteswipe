@@ -80,8 +80,8 @@ export default class extends Component {
                 }
               </Carousel>
             }
-            <View>
-              <Tabs >
+            <View style={styles.tabContainer}>
+              <Tabs>
                 <Info tabLabel='Info' restaurant={this.props.restaurant} />
                 <Reviews tabLabel='Reviews' reviews={this.props.reviews} />
               </Tabs>
