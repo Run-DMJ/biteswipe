@@ -1,5 +1,6 @@
 package com.sanplot.biteswipe;
 
+import com.facebook.common.logging.FLog;
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
 import com.crashlytics.android.Crashlytics;
@@ -9,9 +10,10 @@ public class MainActivity extends ReactActivity {
 
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
-				super.onCreate(savedInstanceState);
-				Fabric.with(this, new Crashlytics());
-		}
+            super.onCreate(savedInstanceState);
+            Fabric.with(this, new Crashlytics());
+            FLog.setLoggingDelegate(ReactNativeFabricLogger.getInstance());
+        }
 
     /**
      * Returns the name of the main component registered from JavaScript.

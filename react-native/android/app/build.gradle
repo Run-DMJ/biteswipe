@@ -88,14 +88,14 @@ gradleProperties.load(new FileInputStream(gradlePropertiesFile))
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "com.sanplot.biteswipe"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -164,9 +164,10 @@ dependencies {
     compile project(':react-native-spinkit')
     compile project(':react-native-vector-icons')
     compile project(':react-native-material-kit')
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:25.3.0"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.facebook.react:react-native:0.42.0'
+    // From node_modules
     compile 'com.facebook.fresco:animated-gif:0.11.0'
     compile project(':react-native-fabric')
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
