@@ -34,10 +34,11 @@ export default class BiteSwipe extends Component {
 
   componentDidMount() {
     Linking.addEventListener('url', this._handleOpenURL);
-  }
-
-  componentWillUnmount() {
-    Linking.removeEventListener('url', this._handleOpenURL);
+    Linking.getInitialURL().then((url) => {
+      if (url) {
+        this.handleDeepLink({ url });
+      };
+    });
   }
 
   _handleOpenURL(event) {
@@ -47,6 +48,7 @@ export default class BiteSwipe extends Component {
       store.dispatch(receiveAccessToken(obj.accessToken));
       store.dispatch(updateLoggedIn(true));
     }
+    Linking.removeEventListener('url', this._handleOpenURL);
   }
 
   animationCompleted() {
