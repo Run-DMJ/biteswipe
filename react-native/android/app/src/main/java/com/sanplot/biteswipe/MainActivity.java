@@ -8,12 +8,12 @@ import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends ReactActivity {
 
-		@Override
-		public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            Fabric.with(this, new Crashlytics());
-            FLog.setLoggingDelegate(ReactNativeFabricLogger.getInstance());
-        }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
+        FLog.setLoggingDelegate(ReactNativeFabricLogger.getInstance());
+    }
 
     /**
      * Returns the name of the main component registered from JavaScript.
