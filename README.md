@@ -12,19 +12,19 @@ Team Run-DMJ presenting BiteSwipe on 2/16/17: https://www.youtube.com/watch?v=aS
 
 <table>
 	<tr>
-      <td width="250">
-      	<img src="/public/images/1.png" width="250"/>
+      <td width="350">
+      	<img src="/public/images/1.png" width="350"/>
       </td>
-      <td width="250">
-      	<img src="/public/images/2.png" width="250"/>
+      <td width="350">
+      	<img src="/public/images/2.png" width="350"/>
       </td>
     </tr>
     <tr>
       <td width="250">
-      	<img src="/public/images/3.png" width="250"/>
+      	<img src="/public/images/3.png" width="350"/>
       </td>
-      <td width="250">
-      	<img src="/public/images/4.png" width="250"/>
+      <td width="350">
+      	<img src="/public/images/4.png" width="350"/>
       </td>
     </tr>
 </table>
