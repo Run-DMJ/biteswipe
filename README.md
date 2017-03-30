@@ -10,7 +10,21 @@ Team Members: Joe Cumins, Dennis Deng, Mark Hario, & Rachel Bird. :octocat:
 
 Team Run-DMJ presenting BiteSwipe on 2/16/17: https://www.youtube.com/watch?v=aSN2p8m543s
 
-<img src="/public/images/1.png" width="350"/>
-<img src="/public/images/2.png" width="350"/>
-<img src="/public/images/3.png" width="350"/>
-<img src="/public/images/4.png" width="350"/>
+<table>
+	<tr>
+      <td width="250">
+      	<img src="/public/images/1.png" width="250"/>
+      </td>
+      <td width="250">
+      	<img src="/public/images/2.png" width="250"/>
+      </td>
+    </tr>
+    <tr>
+      <td width="250">
+      	<img src="/public/images/3.png" width="250"/>
+      </td>
+      <td width="250">
+      	<img src="/public/images/4.png" width="250"/>
+      </td>
+    </tr>
+</table>
